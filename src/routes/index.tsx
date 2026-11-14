@@ -18,7 +18,14 @@ export const Route = createFileRoute('/')({
 });
 
 function Brand() {
-  return <div className="flex items-center gap-3"><div className="brand-mark"><Activity size={23} strokeWidth={2.8} /></div><span className="text-xl font-bold">Adega do Robô<span className="text-primary">.</span></span></div>;
+  return <div className="flex items-center gap-3"><div className="brand-mark">function Brand() {
+  return (
+    <div className="flex items-center gap-3">
+      <img src="./logo.png" alt="Adega do Robô" className="w-10 h-10 object-contain rounded-full bg-slate-900" />
+      <span className="text-xl font-bold">Adega do Robô<span className="text-primary">.</span></span>
+    </div>
+  );
+}</div><span className="text-xl font-bold">Adega do Robô<span className="text-primary">.</span></span></div>;
 }
 
 function Index() {
