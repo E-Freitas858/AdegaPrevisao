@@ -98,7 +98,7 @@ function Index() {
       <div className="login-divider" />
       <h2 className="font-semibold text-xl">Bem-vindo de volta</h2>
       <p className="text-sm text-muted-foreground mt-2 mb-7">Acesse seu painel de planejamento.</p>
-      <form onSubmit={e => { e.preventDefault(); if (password !== 'freitas') { setLoginError('Senha incorreta. Tente novamente.'); return; } setSignedIn(true); setPassword(''); setLoginError(''); toast.success('Bem-vindo ao Adega do Robô!'); }}>
+      <form onSubmit={e => { e.preventDefault(); if (password !== 'CDN2') { setLoginError('Senha incorreta. Tente novamente.'); return; } setSignedIn(true); setPassword(''); setLoginError(''); toast.success('Bem-vindo ao Adega do Robô!'); }}>
         <label htmlFor="password" className="text-xs font-medium">Senha de acesso</label>
         <div className="relative mt-2"><LockKeyhole size={17} className="absolute left-3 top-3.5 text-muted-foreground" /><input id="password" type={showPassword ? 'text' : 'password'} className="field h-12 w-full pl-10 pr-12" placeholder="Digite sua senha" value={password} onChange={e => setPassword(e.target.value)} required /><Button type="button" variant="ghost" size="icon" className="absolute right-1 top-1.5" aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'} onClick={() => setShowPassword(!showPassword)}>{showPassword ? <EyeOff /> : <Eye />}</Button></div>
         {loginError && <p role="alert" className="text-destructive text-xs mt-3">{loginError}</p>}
