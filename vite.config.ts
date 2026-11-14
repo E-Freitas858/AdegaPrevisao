@@ -1,18 +1,5 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import path from "path";
+import { defineConfig } from '@lovable.dev/vite-tanstack-config';
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  base: '/AdegaPrevisao/',
-  server: {
-    host: "::",
-    port: 8080,
-  },
-  plugins: [react()],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
-});
+// Lovable preview and hosting retain the supported Start bootstrap.
+// GitHub Pages uses the independent, browser-only vite.static.config.ts target.
+export default defineConfig();

@@ -1,6 +1,22 @@
 # Forecast Ink Dashboard
 
-Implement exactly the screenshot and nothing else
+Painel de previsão de demanda com importação local de Excel e exportação PDF/CSV.
+
+## GitHub Pages (100% estático)
+
+```sh
+bun install --frozen-lockfile
+bun run build:pages
+bun run preview:pages
+```
+
+O comando `build:pages` gera `dist/index.html` e arquivos estáticos. Publique apenas `dist`; nenhum servidor é necessário. Os caminhos de arquivos são relativos, permitindo hospedar em `/AdegaPrevisao/` ou outro nome de repositório. A navegação utiliza hash (`#/`) pelo TanStack Router, não React Router/HashRouter.
+
+Em **Settings → Pages**, escolha **GitHub Actions** como fonte. O fluxo `.github/workflows/deploy.yml` gera e publica essa versão em pushes para `main`/`master` ou por execução manual.
+
+O preview do Lovable e `bun run build` mantêm TanStack Start, exigido pela plataforma. A exportação estática não executa `server.ts`, não usa SSR e não faz chamadas ao servidor para os dados. As dependências Start permanecem para o ambiente Lovable.
+
+A senha `admin123` é somente uma demonstração: em hospedagem estática ela não protege dados confidenciais. A planilha inicial faz parte dos arquivos públicos; arquivos importados e login ficam em memória e reiniciam ao recarregar. Cálculos, gráficos, anos futuros, categorias, ícones e aparência são compartilhados entre os dois ambientes.
 
 This project was built with [Lovable](https://lovable.dev).
 

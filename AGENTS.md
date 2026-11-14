@@ -30,6 +30,7 @@ use the editor.
 <!-- LOVABLE:END -->
 
 ## Application rules
+- Keep Lovable preview on the TanStack Start bootstrap and export GitHub Pages with the separate browser-only Vite target and TanStack hash history; static hosting must not require a server or a second router framework.
 - Keep workbook parsing and linear-seasonal forecasting in browser-safe pure modules; this lets initial data and uploads use identical calculations.
 - The initial password gate is explicitly a session-only demonstration, not real account authentication; do not represent it as secure production access.
 - Store extracted workbook values as source JSON and keep uploaded replacements in React state; no browser storage persistence is implied by the initial demonstration.
