@@ -84,7 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Adega do Robô | Previsão de Demanda" },
       { name: "description", content: "Previsão de demanda e gestão financeira." },
-      { name: "author", content: "Adega do Robô" },
+      { name: "author", content: "Lovable" },
       { property: "og:title", content: "Adega do Robô | Previsão de Demanda" },
       { property: "og:description", content: "Previsão de demanda e gestão financeira." },
       { property: "og:type", content: "website" },
