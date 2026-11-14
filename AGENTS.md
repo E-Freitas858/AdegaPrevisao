@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Application rules
+- Keep workbook parsing and linear-seasonal forecasting in browser-safe pure modules; this lets initial data and uploads use identical calculations.
+- The initial password gate is explicitly a session-only demonstration, not real account authentication; do not represent it as secure production access.
+- Store extracted workbook values as source JSON and keep uploaded replacements in React state; no browser storage persistence is implied by the initial demonstration.
