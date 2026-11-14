@@ -6,7 +6,7 @@ import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { categories, currency, initialData, integer, months, period, rowsFor, validateWorkbook, type WorkbookData } from '@/lib/demand';
-import logoImg from '@/assets/logo.png';
+
 
 export const Route = createFileRoute('/')({
   head: () => ({ meta: [
@@ -21,7 +21,7 @@ export const Route = createFileRoute('/')({
 function Brand() {
   return (
     <div className="flex items-center gap-3">
-      <img src={logoImg} alt="Adega do Robô" className="w-10 h-10 object-contain rounded-full bg-slate-900" />
+      <img src="/logo.png" alt="Adega do Robô" className="w-10 h-10 object-contain rounded-full bg-slate-900" />
       <span className="text-xl font-bold">Adega do Robô<span className="text-primary">.</span></span>
     </div>
   );
