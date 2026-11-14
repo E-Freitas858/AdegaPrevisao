@@ -21,8 +21,8 @@ export const Route = createFileRoute('/')({
 function Brand() {
   return (
     <div className="flex items-center gap-3">
-      <div className="w-10 h-10 flex items-center justify-center">
-        <img src={logoImg} alt="Adega do Robô" className="w-full h-full object-contain" />
+      <div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center bg-slate-900 border border-border shadow-sm">
+        <img src={logoImg} alt="Adega do Robô" className="w-full h-full object-cover" />
       </div>
       <span className="text-xl font-bold">Adega do Robô<span className="text-primary">.</span></span>
     </div>
