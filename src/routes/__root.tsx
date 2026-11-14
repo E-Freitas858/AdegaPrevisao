@@ -89,6 +89,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "Previsão de demanda e gestão financeira." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@Lovable" },
     ],
     
     links: [
