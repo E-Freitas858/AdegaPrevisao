@@ -85,9 +85,13 @@ function Index() {
     }
     setExportOpen(false); toast.success('Relatório exportado.');
   }
-  if (!signedIn) return <main className="login-screen">
+ if (!signedIn) return <main className="login-screen">
     <div className="login-content reveal">
-      <div className="brand-mark login-symbol"><Activity size={36} strokeWidth={2.5} /></div>
+      <div className="mb-4 flex justify-center">
+        <div className="w-24 h-24 rounded-full overflow-hidden flex items-center justify-center bg-slate-900 border border-border shadow-xl">
+          <img src={logoImg} alt="Adega do Robô" className="w-full h-full object-cover" />
+        </div>
+      </div>
       <div className="eyebrow text-primary mb-3">DEMANDA & FINANÇAS</div>
       <h1 className="text-4xl font-bold">Adega do Robô<span className="text-primary">.</span></h1>
       <p className="text-muted-foreground mt-4 text-sm leading-6">Clareza nos números.<br />Confiança nas próximas decisões.</p>
