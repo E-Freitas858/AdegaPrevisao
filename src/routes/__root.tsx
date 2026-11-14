@@ -82,17 +82,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "Vértice | Demanda e Finanças" },
       { title: "Adega do Robô | Previsão de Demanda" },
       { name: "description", content: "Previsão de demanda e gestão financeira." },
       { name: "author", content: "Lovable" },
+      { property: "og:title", content: "Vértice | Demanda e Finanças" },
+      { name: "author", content: "Adega do Robô" },
       { property: "og:title", content: "Adega do Robô | Previsão de Demanda" },
       { property: "og:description", content: "Previsão de demanda e gestão financeira." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:site", content: "summary_large_image" },
-],
- ],
+    ],
+    
     links: [
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap' },
       {
