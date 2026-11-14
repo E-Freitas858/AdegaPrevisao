@@ -8,7 +8,7 @@ export const getRouter = () => {
 
   const router = createRouter({
     routeTree,
-    ...(import.meta.env.VITE_STATIC_EXPORT ? { history: createHashHistory() } : {}),
+    history: createHashHistory(), // 👈 Força o histórico por Hash para rodar perfeitamente no GitHub Pages
     context: { queryClient },
     scrollRestoration: true,
     // Lets Query own freshness; set caching defaults on the QueryClient, not the router.
