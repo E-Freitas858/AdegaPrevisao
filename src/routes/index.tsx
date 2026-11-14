@@ -18,7 +18,6 @@ export const Route = createFileRoute('/')({
 });
 
 function Brand() {
-  function Brand() {
   return (
     <div className="flex items-center gap-3">
       <img src="./public/logo.png" alt="Adega do Robô" className="w-10 h-10 object-contain rounded-full bg-slate-900" />
