@@ -9,16 +9,16 @@ import { categories, currency, initialData, integer, months, period, rowsFor, va
 
 export const Route = createFileRoute('/')({
   head: () => ({ meta: [
-    { title: 'Vértice | Previsão de Demanda e Gestão Financeira' },
+    { title: 'Adega do Robô | Previsão de Demanda e Gestão Financeira' },
     { name: 'description', content: 'Planejamento financeiro com previsões de demanda, faturamento, gastos e vendas por categoria.' },
-    { property: 'og:title', content: 'Vértice | Inteligência para o seu negócio' },
+    { property: 'og:title', content: 'Adega do Robô | Inteligência para o seu negócio' },
     { property: 'og:description', content: 'Acompanhe seus resultados e planeje os próximos meses com dados e previsões.' },
     { property: 'og:type', content: 'website' }, { name: 'twitter:card', content: 'summary_large_image' },
   ] }), component: Index,
 });
 
 function Brand() {
-  return <div className="flex items-center gap-3"><div className="brand-mark"><Activity size={23} strokeWidth={2.8} /></div><span className="text-xl font-bold">vértice<span className="text-primary">.</span></span></div>;
+  return <div className="flex items-center gap-3"><div className="brand-mark"><Activity size={23} strokeWidth={2.8} /></div><span className="text-xl font-bold">Adega do Robô<span className="text-primary">.</span></span></div>;
 }
 
 function Index() {
@@ -69,7 +69,7 @@ function Index() {
       const link = document.createElement('a'); link.href = url; link.download = `vertice-${year}-${month + 1}.csv`; link.click(); URL.revokeObjectURL(url);
     } else {
       const { jsPDF } = await import('jspdf');
-      const pdf = new jsPDF(); pdf.setFontSize(22); pdf.text('VERTICE', 18, 23); pdf.setFontSize(13); pdf.text(title, 18, 35);
+      const pdf = new jsPDF(); pdf.setFontSize(22); pdf.text('Adega do Robô', 18, 23); pdf.setFontSize(13); pdf.text(title, 18, 35);
       pdf.setFontSize(10); [ `Faturamento: ${currency(current.revenue)}`, `Gastos: ${currency(current.expenses)}`, `Vendas: ${integer(current.sales)}`, `Margem: ${current.margin.toFixed(1)}%`, `Fonte: ${filename}`, current.actual ? 'Dados realizados' : 'Projecao: tendencia linear + sazonalidade' ].forEach((text, i) => pdf.text(text, 18, 49 + i * 7));
       pdf.text('Categoria', 18, 100); pdf.text('Faturamento', 100, 100); pdf.text('Vendas', 166, 100);
       categoryRows.forEach((c, i) => { const y = 109 + i * 7; pdf.text(c.name, 18, y); pdf.text(currency(c.revenue), 100, y); pdf.text(integer(c.sales), 166, y); });
@@ -81,19 +81,19 @@ function Index() {
     <div className="login-content reveal">
       <div className="brand-mark login-symbol"><Activity size={36} strokeWidth={2.5} /></div>
       <div className="eyebrow text-primary mb-3">DEMANDA & FINANÇAS</div>
-      <h1 className="text-4xl font-bold">vértice<span className="text-primary">.</span></h1>
+      <h1 className="text-4xl font-bold">Adega do Robô<span className="text-primary">.</span></h1>
       <p className="text-muted-foreground mt-4 text-sm leading-6">Clareza nos números.<br />Confiança nas próximas decisões.</p>
       <div className="login-divider" />
       <h2 className="font-semibold text-xl">Bem-vindo de volta</h2>
       <p className="text-sm text-muted-foreground mt-2 mb-7">Acesse seu painel de planejamento.</p>
-      <form onSubmit={e => { e.preventDefault(); if (password !== 'admin123') { setLoginError('Senha incorreta. Tente novamente.'); return; } setSignedIn(true); setPassword(''); setLoginError(''); toast.success('Bem-vindo ao Vértice!'); }}>
+      <form onSubmit={e => { e.preventDefault(); if (password !== 'admin123') { setLoginError('Senha incorreta. Tente novamente.'); return; } setSignedIn(true); setPassword(''); setLoginError(''); toast.success('Bem-vindo ao Adega do Robô!'); }}>
         <label htmlFor="password" className="text-xs font-medium">Senha de acesso</label>
         <div className="relative mt-2"><LockKeyhole size={17} className="absolute left-3 top-3.5 text-muted-foreground" /><input id="password" type={showPassword ? 'text' : 'password'} className="field h-12 w-full pl-10 pr-12" placeholder="Digite sua senha" value={password} onChange={e => setPassword(e.target.value)} required /><Button type="button" variant="ghost" size="icon" className="absolute right-1 top-1.5" aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'} onClick={() => setShowPassword(!showPassword)}>{showPassword ? <EyeOff /> : <Eye />}</Button></div>
         {loginError && <p role="alert" className="text-destructive text-xs mt-3">{loginError}</p>}
         <Button type="submit" className="w-full h-12 mt-5 font-semibold">Acessar painel <ArrowRight /></Button>
       </form>
       <div className="flex items-center gap-2 mt-6 text-xs text-muted-foreground"><ShieldCheck size={15} /><span>Acesso de demonstração · senha: <span className="text-foreground">admin123</span></span></div>
-    </div><span className="login-watermark">Vértice · Previsão de demanda e gestão financeira</span>
+    </div><span className="login-watermark">Adega do Robô · Previsão de demanda e gestão financeira</span>
   </main>;
 
   const kpis = [
@@ -118,10 +118,10 @@ function Index() {
         <div className="flex items-start sm:items-center gap-3 py-4 px-5 mt-5 border border-primary/20 rounded-md bg-success-soft"><TrendingUp size={19} className="text-primary shrink-0" /><p className="text-xs leading-5 text-muted-foreground"><span className="text-primary font-semibold">Um olhar à frente.</span> {bestMonth.name} tem o maior faturamento {year}: <span className="text-foreground font-medium">{currency(bestMonth.revenue ?? bestMonth.forecast ?? 0)}</span>. As projeções consideram tendência linear e sazonalidade de {historyCount} meses históricos.</p></div>
       </>}
       {tab !== 'history' ? <section className="panel mt-6 overflow-hidden"><div className="flex items-center justify-between p-5 sm:px-6"><div><h2 className="text-sm font-semibold">Desempenho por categoria</h2><p className="text-xs text-muted-foreground mt-1.5">{tab === 'overview' ? 'Principais categorias do período selecionado' : `Todas as ${categoryRows.length} categorias do período`}</p></div>{tab === 'overview' && <Button variant="ghost" size="sm" className="text-primary" onClick={() => setTab('categories')}>Ver todas<ArrowRight /></Button>}</div><div className="table-scroll"><table className="data-table"><thead><tr><th>Categoria</th><th className="numeric">Faturamento previsto</th><th className="numeric">Vendas (un.)</th><th className="numeric">Participação</th><th className="numeric">Situação</th></tr></thead><tbody>{categoryRows.slice(0, tab === 'overview' ? 5 : undefined).map((c, i) => <tr key={c.name}><td><span className="inline-flex items-center gap-3"><span className="size-7 flex items-center justify-center rounded bg-secondary text-muted-foreground"><Package size={14} /></span><span className="font-medium">{c.name}</span></span></td><td className="numeric font-medium">{currency(c.revenue)}</td><td className="numeric text-muted-foreground">{integer(c.sales)}</td><td className="numeric"><span className="inline-flex items-center gap-3">{(c.share * 100).toFixed(1).replace('.', ',')}%<span className="category-bar"><progress max={0.1} value={c.share} /></span></span></td><td className="numeric"><span className={i < 3 ? 'text-primary' : 'text-muted-foreground'}>{current.actual ? 'Realizado' : 'Projetado'}</span></td></tr>)}</tbody></table></div></section> : <section className="panel mt-6 overflow-hidden"><div className="p-6"><h2 className="font-semibold text-sm">Resultados mensais · {year}</h2><p className="text-xs text-muted-foreground mt-2">Valores realizados e projeções sazonais</p></div><div className="table-scroll"><table className="data-table"><thead><tr><th>Mês</th><th className="numeric">Faturamento</th><th className="numeric">Gastos</th><th className="numeric">Vendas</th><th className="numeric">Margem</th><th>Situação</th></tr></thead><tbody>{months.map((m, i) => { const p = period(data, year, i); return <tr key={m}><td>{m}</td><td className="numeric text-primary">{currency(p.revenue)}</td><td className="numeric text-warning">{currency(p.expenses)}</td><td className="numeric">{integer(p.sales)}</td><td className="numeric">{p.margin.toFixed(1)}%</td><td>{p.actual ? 'Realizado' : 'Projeção'}</td></tr>; })}</tbody></table></div></section>}
-      <footer className="flex flex-col sm:flex-row justify-between gap-3 mt-6 text-[10px] text-muted-foreground"><span className="flex items-center gap-1.5"><FileSpreadsheet size={12} />Fonte: {filename}<span className="text-primary ml-2 inline-flex items-center gap-1"><Check size={12} />Dados carregados</span></span><span>Vértice · Inteligência para o seu negócio</span></footer>
+      <footer className="flex flex-col sm:flex-row justify-between gap-3 mt-6 text-[10px] text-muted-foreground"><span className="flex items-center gap-1.5"><FileSpreadsheet size={12} />Fonte: {filename}<span className="text-primary ml-2 inline-flex items-center gap-1"><Check size={12} />Dados carregados</span></span><span>Adega do Robô · Inteligência para o seu negócio</span></footer>
     </main>
     <Dialog open={uploadOpen} onOpenChange={setUploadOpen}><DialogContent><DialogTitle>Atualizar dados</DialogTitle><DialogDescription>Importe uma planilha com as abas Faturamento Bruto, Gastos e Qnt Vendas. Os dados substituem a base nesta sessão.</DialogDescription><div className="upload-zone" onDragOver={e => e.preventDefault()} onDrop={e => { e.preventDefault(); void importFile(e.dataTransfer.files[0]); }}><FileSpreadsheet className="mx-auto text-primary mb-4" size={36} /><p className="text-sm mb-2">Arraste sua planilha para cá</p><p className="text-xs text-muted-foreground mb-5">Excel · .xlsx</p><Button disabled={busy} onClick={() => inputRef.current?.click()}><Upload />{busy ? 'Importando…' : 'Selecionar arquivo'}</Button><input ref={inputRef} type="file" accept=".xlsx" className="hidden" onChange={e => void importFile(e.target.files?.[0])} /></div><span className="text-xs text-muted-foreground">Arquivo atual: {filename}</span></DialogContent></Dialog>
     <Dialog open={exportOpen} onOpenChange={setExportOpen}><DialogContent><DialogTitle>Exportar relatório</DialogTitle><DialogDescription>{months[month]} de {year} · indicadores e todas as categorias.</DialogDescription><div className="grid grid-cols-2 gap-3 mt-2"><Button variant="outline" className="h-14" onClick={() => void exportReport('pdf')}><Download />Relatório PDF</Button><Button variant="outline" className="h-14" onClick={() => void exportReport('csv')}><FileSpreadsheet />Planilha CSV</Button></div></DialogContent></Dialog>
-    <Dialog open={helpOpen} onOpenChange={setHelpOpen}><DialogContent><DialogTitle>Sobre os dados</DialogTitle><DialogDescription>As previsões da planilha são preservadas. Para novos períodos, a projeção combina a tendência linear histórica com a sazonalidade mensal. Valores de categorias são distribuídos pela participação histórica. Este acesso é uma demonstração; não protege dados confidenciais.</DialogDescription><p className="text-xs text-muted-foreground">Vértice é um nome provisório para o painel.</p></DialogContent></Dialog>
+    <Dialog open={helpOpen} onOpenChange={setHelpOpen}><DialogContent><DialogTitle>Sobre os dados</DialogTitle><DialogDescription>As previsões da planilha são preservadas. Para novos períodos, a projeção combina a tendência linear histórica com a sazonalidade mensal. Valores de categorias são distribuídos pela participação histórica. Este acesso é uma demonstração; não protege dados confidenciais.</DialogDescription><p className="text-xs text-muted-foreground">Adega do Robô é um nome provisório para o painel.</p></DialogContent></Dialog>
   </div>;
 }
