@@ -12,7 +12,7 @@ export const Route = createFileRoute('/')({
   head: () => ({ meta: [
     { title: 'Adega do Robô | Previsão de Demanda e Gestão Financeira' },
     { name: 'description', content: 'Planejamento financeiro com previsões de demanda, faturamento, gastos e vendas por categoria.' },
-    { property: 'og:title', content: 'Adega do Robô | Inteligência para o seu negócio' },
+    { property: 'og:title', content: 'Vértice | Inteligência para o seu negócio' },
     { property: 'og:description', content: 'Acompanhe seus resultados e planeje os próximos meses com dados e previsões.' },
     { property: 'og:type', content: 'website' }, { name: 'twitter:card', content: 'summary_large_image' },
   ] }), component: Index,
