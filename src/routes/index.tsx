@@ -6,6 +6,7 @@ import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { categories, currency, initialData, integer, months, period, rowsFor, validateWorkbook, type WorkbookData } from '@/lib/demand';
+import logoImg from '@/assets/assets/logo.png';
 
 export const Route = createFileRoute('/')({
   head: () => ({ meta: [
