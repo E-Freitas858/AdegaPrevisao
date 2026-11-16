@@ -1,11 +1,12 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite' // Ou o pacote correspondente à sua versão do Tailwind
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
+import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(), // Certifique-se de que ele está sendo chamado nos plugins se essa for a sua estrutura
-  ],
-  // ... restante das suas configurações existentes
-})
+  base: './',
+  plugins: [tailwindcss(), react()],
+  define: { 'import.meta.env.VITE_STATIC_EXPORT': 'true' },
+  resolve: { alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) } },
+  build: { outDir: 'dist', emptyOutDir: true },
+});
